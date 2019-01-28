@@ -4,6 +4,10 @@ import java.util.Iterator;
 
 public class FakeMemory implements Memory<Cell> {
 
+	public FakeMemory(int height, int width) {
+
+	}
+	
 	@Override
 	public Cell createCell(char content) {
 		return new Cell(content);
