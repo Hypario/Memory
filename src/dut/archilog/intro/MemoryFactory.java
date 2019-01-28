@@ -1,3 +1,4 @@
+package dut.archilog.intro;
 
 /**
  * Patron de conception Factory Method pour cacher 
