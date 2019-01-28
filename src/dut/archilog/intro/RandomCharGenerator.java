@@ -9,8 +9,7 @@ public class RandomCharGenerator implements CharGenerator {
     private static final Random RAND = new Random();
 
     @Override
-    public List<Character> generate(Memory<? extends Cell> memory) {
-        int nbPairs = memory.getNbPairs();
+    public List<Character> generate(int nbPairs) {
 		List<Character> cards = new ArrayList<>();
 		char current;
 		for (int i = 0; i < nbPairs; i++) {

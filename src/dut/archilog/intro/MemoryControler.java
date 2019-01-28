@@ -4,9 +4,8 @@ import java.util.Iterator;
 
 public class MemoryControler {
 	
-	public <C extends Cell> void control(Memory<C> memory,CharGenerator generator) {
-		
-		Iterator<C> it = generator.generate(memory).stream().map(memory::createCell).iterator();
+	public <C extends Cell> void control(Memory<C> memory,CharGenerator generator) {		
+		Iterator<C> it = generator.generate(memory.getNbPairs()).stream().map(memory::createCell).iterator();
 		int stats = 0;
 		memory.prepare(it);
 		while (!memory.isStoppingCriterionMet()) {
