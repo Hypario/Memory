@@ -85,7 +85,9 @@ Par exemple en Swing :
 
 ![Graphical Memory](graphicalmemory.png)
 
-La façon précise de procéder va dépendre du framework d'implémentation (JavaFX ou Swing). Seule les principes sont donnés ci-après.
+La façon précise de procéder va dépendre du framework d'implémentation (JavaFX ou Swing). Seule les principes sont donnés ci-après, représentés sur ce diagramme de classe.
+
+![aperçu de l'architecture du programme](overview.png)
 
 1. Créer une `Cell` particulière `GraphicalCell` qui connaît sa représentation graphique.
 

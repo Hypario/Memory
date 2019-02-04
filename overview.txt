@@ -1,0 +1,34 @@
+@startuml overview.png
+hide empty members
+
+package "Base" {
+interface Memory<C extends Cell>
+class FakeMemory
+class Cell
+class MemoryControler
+interface CharGenerator
+class RandomCharGenerator
+class Game
+
+Memory <|-- FakeMemory
+CharGenerator <|-- RandomCharGenerator
+MemoryControler .left.> CharGenerator : "builds grid"
+MemoryControler .right.> Memory : "visualized by"
+Game .down.> MemoryControler : runs
+}
+
+package "Semaine 2" {
+    class TextualMemory
+    Memory <|-- TextualMemory
+    TextualMemory ..> Cell : "displays"
+}
+
+package "Semaine 3" {
+    class GraphicalCell
+    class GraphicalMemory
+    Memory <|-- GraphicalMemory
+    Cell <|-- GraphicalCell
+    GraphicalMemory .left.> GraphicalCell : "displays"
+}
+
+@enduml
