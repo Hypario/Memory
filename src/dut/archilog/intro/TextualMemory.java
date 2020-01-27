@@ -5,19 +5,21 @@ import java.util.Iterator;
 public class TextualMemory implements Memory<Cell> {
 	private int nbRows, nbColumn;
 
+	private Cell[][] cells;
+
 	public TextualMemory(int nbRow, int nbColumn) {
 		if (nbRow%2 == 1 && nbColumn%2 == 1) {
 			throw new IllegalArgumentException("On ne peut pas jouer avec un nombre impaire de cases");
 		}
 		this.nbRows=nbRow;
 		this.nbColumn=nbColumn;
+		this.cells = new Cell[nbRows][nbColumn];
 	}
-	
-	
-	
+
+
+
 	@Override
 	public Cell createCell(char content) {
-		// TODO Auto-generated method stub
 		return new Cell(content);
 	}
 
@@ -29,20 +31,23 @@ public class TextualMemory implements Memory<Cell> {
 
 	@Override
 	public void prepare(Iterator<Cell> it) {
-		// TODO Auto-generated method stub
-		
+		for (int y = 0; y < cells.length; y++) {
+			for (byte x = 0; x < (this.cells[y].length); x++) {
+				this.cells[y][x] = it.next();
+			}
+		}
 	}
 
 	@Override
 	public void selectFirstCard() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void selectSecondCard() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -54,13 +59,13 @@ public class TextualMemory implements Memory<Cell> {
 	@Override
 	public void displayTheTwoCards() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void hideTheTwoCards() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -78,7 +83,7 @@ public class TextualMemory implements Memory<Cell> {
 	@Override
 	public void displayMessage(String message) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
