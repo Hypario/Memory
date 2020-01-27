@@ -10,8 +10,7 @@ public class Game {
 		// 
 		// Memory<?> memory = new GraphicalMemory(4, 5);
 		Memory<?> memory = new FakeMemory();
-		MemoryControler controler = new MemoryControler();
 		CharGenerator generator = new RandomCharGenerator();
-		controler.control(memory,generator);
+		MemoryController.control(memory,generator);
 	}
 }
