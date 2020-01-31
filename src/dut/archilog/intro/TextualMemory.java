@@ -29,7 +29,6 @@ public class TextualMemory implements Memory<Cell> {
 
 	@Override
 	public int getNbPairs() {
-		// TODO Auto-generated method stub
 		return this.nbRows * this.nbColumns / 2;
 	}
 
@@ -44,22 +43,12 @@ public class TextualMemory implements Memory<Cell> {
 
 	@Override
 	public void selectFirstCard() {
-		int x, y;
-		do {
-			x = 0; y = 0;
-			System.out.printf("Quelle carte souhaitez-vous retourner ? 1 <= X <= %d et 1 <= Y <=%d%n", nbColumns, nbRows);
-			try {
-				x = in.nextInt();
-				y = in.nextInt();
-			} catch (InputMismatchException err) {
-				System.err.println("Ne faites pas n'importe quoi !!");
-			}
-		} while (x >= 1 || x <= nbColumns || y <= 1 || y >= nbRows);
+		firstCard = askCard();
 	}
 
 	@Override
 	public void selectSecondCard() {
-		// TODO Auto-generated method stub
+		secondCard = askCard();
 	}
 
 	@Override
@@ -93,6 +82,26 @@ public class TextualMemory implements Memory<Cell> {
 	@Override
 	public void displayMessage(String message) {
 		// TODO Auto-generated method stub
+	}
+
+	private int nextInt() {
+		try {
+			return in.nextInt();
+		} catch (InputMismatchException err) {
+			System.err.println("Ne faites pas n'importe quoi !!");
+			in.next();
+		}
+		return 0;
+	}
+
+	private Cell askCard() {
+		int x, y;
+		do {
+			System.out.printf("Quelle carte souhaitez-vous retourner ? 1 <= X <= %d et 1 <= Y <=%d%n", nbColumns, nbRows);
+			x = nextInt();
+			y = nextInt();
+		} while (x <= 1 || x >= nbColumns || y <= 1 || y >= nbRows);
+		return cells[y - 1][x - 1];
 	}
 
 }
