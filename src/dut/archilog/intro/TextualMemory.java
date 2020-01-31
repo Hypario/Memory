@@ -43,28 +43,36 @@ public class TextualMemory implements Memory<Cell> {
 
 	@Override
 	public void selectFirstCard() {
-		firstCard = askCard();
+		do {
+			firstCard = askCard();
+		} while (firstCard.isVisible());
+		firstCard.setVisible(true);
 	}
 
 	@Override
 	public void selectSecondCard() {
-		secondCard = askCard();
+		do {
+			secondCard = askCard();
+		} while (secondCard.isVisible() || secondCard == firstCard);
+		secondCard.setVisible(true);
+		System.out.println(this);
 	}
 
 	@Override
 	public boolean areCardEquals() {
-		// TODO Auto-generated method stub
-		return false;
+		return firstCard.equals(secondCard);
 	}
 
 	@Override
 	public void displayTheTwoCards() {
-		// TODO Auto-generated method stub
+		firstCard.setVisible(true);
+		secondCard.setVisible(true);
 	}
 
 	@Override
 	public void hideTheTwoCards() {
-		// TODO Auto-generated method stub
+		firstCard.setVisible(false);
+		secondCard.setVisible(false);
 	}
 
 	@Override
@@ -81,9 +89,13 @@ public class TextualMemory implements Memory<Cell> {
 
 	@Override
 	public void displayMessage(String message) {
-		// TODO Auto-generated method stub
+		System.out.println(message);
 	}
 
+	/**
+	 * Retourne l'entier qu'à taper l'utilisateur
+	 * @return int
+	 */
 	private int nextInt() {
 		try {
 			return in.nextInt();
@@ -97,11 +109,23 @@ public class TextualMemory implements Memory<Cell> {
 	private Cell askCard() {
 		int x, y;
 		do {
+			System.out.println(this);
 			System.out.printf("Quelle carte souhaitez-vous retourner ? 1 <= X <= %d et 1 <= Y <=%d%n", nbColumns, nbRows);
 			x = nextInt();
 			y = nextInt();
-		} while (x <= 1 || x >= nbColumns || y <= 1 || y >= nbRows);
+		} while (x < 1 || x > nbColumns || y < 1 || y > nbRows);
 		return cells[y - 1][x - 1];
+	}
+
+	public String toString() {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (Cell[] cell : cells) {
+			for (Cell value : cell) {
+				stringBuilder.append(value);
+			}
+			stringBuilder.append(System.lineSeparator());
+		}
+		return stringBuilder.toString();
 	}
 
 }
