@@ -32,7 +32,7 @@ public class TextualMemory implements Memory<Cell> {
 	@Override
 	public void prepare(Iterator<Cell> it) {
 		for (int y = 0; y < cells.length; y++) {
-			for (byte x = 0; x < (this.cells[y].length); x++) {
+			for (int x = 0; x < (this.cells[y].length); x++) {
 				this.cells[y][x] = it.next();
 			}
 		}
@@ -41,6 +41,7 @@ public class TextualMemory implements Memory<Cell> {
 	@Override
 	public void selectFirstCard() {
 		// TODO Auto-generated method stub
+		
 
 	}
 
