@@ -10,7 +10,6 @@ public class TextualMemory implements Memory<Cell> {
 	private final Cell[][] cells;
 	private final Scanner in = new Scanner(System.in); // read the input from the keyboard
 	private int nbPairsToFind;
-	//private int nbPairsFound;
 
 	private Cell firstCard, secondCard;
 
@@ -21,7 +20,7 @@ public class TextualMemory implements Memory<Cell> {
 		this.nbRows = nbRow;
 		this.nbColumns = nbColumn;
 		this.cells = new Cell[nbRows][nbColumn];
-		nbPairsToFind = nbRow*nbColumn /2;
+		nbPairsToFind = getNbPairs();
 	}
 
 
