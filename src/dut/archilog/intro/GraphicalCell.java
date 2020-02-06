@@ -1,44 +1,25 @@
 package dut.archilog.intro;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
+public class GraphicalCell extends Cell {
 
-public class GraphicalCell extends Cell implements ActionListener {
+	private final CellButton ui;
 
-	private final JButton ui;
-	
 	public GraphicalCell(char content) {
 		super(content);
-		ui = new JButton(this.toString());
-		ui.setPreferredSize(new Dimension(80,80)); 
-		ui.addActionListener(this);
+		ui = new CellButton(this.toString(), this);
+		ui.setPreferredSize(new Dimension(80,80));
 	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		setVisible(!isVisible());
-		
-	}
-	
-	
+
 	@Override
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
 		ui.setText(this.toString());
-		
 	}
-	
-	public JComponent getUI() {
+
+	public CellButton getUI() {
 		return ui;
 	}
 
-
-
-	
 }
