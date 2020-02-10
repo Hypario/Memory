@@ -86,35 +86,35 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
 
     @Override
     public void displayTheTwoCards() {
-    	firstCard.setVisible(true);
-    	secondCard.setVisible(true);
-    	nbPairsToFind--;
-    	resetCard();
+        firstCard.setVisible(true);
+        secondCard.setVisible(true);
+        nbPairsToFind--;
+        resetCard();
     }
 
     @Override
     public void hideTheTwoCards() {
-    	
-    	// désactivation de la frame afin que le joueur ne puisse pas intéragir avec le jeu quand les deux cartes sont montrées
-    	frame.setEnabled(false);
-    	try {
-    		Thread.sleep(1000);
-    	} catch(InterruptedException e) {
-    		e.printStackTrace();
-    	}
-    	// réactivation de la frame
-    	frame.setEnabled(true);
-    	
-    	firstCard.setVisible(false);
-    	secondCard.setVisible(false);
-    	
-    	resetCard();
-    	
+
+        // dï¿½sactivation de la frame afin que le joueur ne puisse pas intï¿½ragir avec le jeu quand les deux cartes sont montrï¿½es
+        frame.setEnabled(false);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // rï¿½activation de la frame
+        frame.setEnabled(true);
+
+        firstCard.setVisible(false);
+        secondCard.setVisible(false);
+
+        resetCard();
+
     }
-    
+
     public void resetCard() {
-    	firstCard = null;
-    	secondCard = null;
+        firstCard = null;
+        secondCard = null;
     }
 
     @Override
@@ -129,7 +129,7 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
 
     @Override
     public void displayMessage(String message) {
-    	JOptionPane.showMessageDialog(frame,message);
+        JOptionPane.showMessageDialog(frame, message);
     }
 
 
@@ -144,18 +144,18 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
         else if (secondCard == null)
             secondCard = cell;
         else {
-        	System.err.println("Hoho...il y a un problème... // Reset des cartes");
-        	if (firstCard != null) {
-        		firstCard.setVisible(false);
-        	}
-        	if (secondCard != null) {
-        		secondCard.setVisible(false);
-        	}
-        	firstCard = null;
-        	secondCard = null;
-        	cell.setVisible(false);
+            System.err.println("Hoho...il y a un problï¿½me... // Reset des cartes");
+            if (firstCard != null) {
+                firstCard.setVisible(false);
+            }
+            if (secondCard != null) {
+                secondCard.setVisible(false);
+            }
+            firstCard = null;
+            secondCard = null;
+            cell.setVisible(false);
         }
-            
+
     }
-    
+
 }
