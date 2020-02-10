@@ -1,6 +1,9 @@
 package dut.archilog.intro;
 
+import java.awt.Color;
 import java.awt.Dimension;
+
+import javax.swing.JButton;
 
 public class GraphicalCell extends Cell {
 
@@ -16,6 +19,13 @@ public class GraphicalCell extends Cell {
 	public void setVisible(boolean visible) {
 		super.setVisible(visible);
 		ui.setText(this.toString());
+		if (visible) {
+			ui.setBackground(Color.RED);
+			ui.setEnabled(false);
+		} else {
+			ui.setBackground(new JButton().getBackground());
+			ui.setEnabled(true);
+		}
 	}
 
 	public CellButton getUI() {

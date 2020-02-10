@@ -61,7 +61,7 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
     public void selectFirstCard() {
         try {
             while (firstCard == null) {
-                Thread.sleep(1000);
+                Thread.sleep(1);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -72,7 +72,7 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
     public void selectSecondCard() {
         try {
             while (secondCard == null) {
-                Thread.sleep(1000);
+                Thread.sleep(1);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -89,12 +89,32 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
     	firstCard.setVisible(true);
     	secondCard.setVisible(true);
     	nbPairsToFind--;
+    	resetCard();
     }
 
     @Override
     public void hideTheTwoCards() {
+    	
+    	// désactivation de la frame afin que le joueur ne puisse pas intéragir avec le jeu quand les deux cartes sont montrées
+    	frame.setEnabled(false);
+    	try {
+    		Thread.sleep(1000);
+    	} catch(InterruptedException e) {
+    		e.printStackTrace();
+    	}
+    	// réactivation de la frame
+    	frame.setEnabled(true);
+    	
     	firstCard.setVisible(false);
     	secondCard.setVisible(false);
+    	
+    	resetCard();
+    	
+    }
+    
+    public void resetCard() {
+    	firstCard = null;
+    	secondCard = null;
     }
 
     @Override
@@ -123,7 +143,19 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
             firstCard = cell;
         else if (secondCard == null)
             secondCard = cell;
-        else
-            System.err.println("Hoho...il y a un problème...");
+        else {
+        	System.err.println("Hoho...il y a un problème... // Reset des cartes");
+        	if (firstCard != null) {
+        		firstCard.setVisible(false);
+        	}
+        	if (secondCard != null) {
+        		secondCard.setVisible(false);
+        	}
+        	firstCard = null;
+        	secondCard = null;
+        	cell.setVisible(false);
+        }
+            
     }
+    
 }
