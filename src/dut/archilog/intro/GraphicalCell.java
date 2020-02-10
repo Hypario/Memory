@@ -13,7 +13,7 @@ public class GraphicalCell extends Cell {
 	public GraphicalCell(char content) {
 		super(content);
 		ui = new CellButton(this.toString(), this);
-		ui.setFont(new Font("Helvetica Neue", Font.BOLD, 30));
+		ui.setFont(new Font(ui.getFont().getFontName(), Font.BOLD, 30));
 		ui.setPreferredSize(new Dimension(80, 80));
 	}
 
@@ -22,7 +22,7 @@ public class GraphicalCell extends Cell {
 		super.setVisible(visible);
 		ui.setText(this.toString());
 		if (visible) {
-			ui.setBackground(Color.RED);
+			ui.setBackground(new Color(71, 100, 111));
 			ui.setEnabled(false);
 		} else {
 			ui.setBackground(new JButton().getBackground());

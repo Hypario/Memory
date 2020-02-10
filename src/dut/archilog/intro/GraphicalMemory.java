@@ -133,7 +133,7 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         CellButton button = (CellButton) actionEvent.getSource();
-        button.setBackground(Color.RED);
+        //button.setBackground(Color.BLUE);
         Cell cell = button.getCell();
         cell.setVisible(!cell.isVisible());
         if (firstCard == null)
