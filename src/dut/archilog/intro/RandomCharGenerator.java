@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Random;
 
 public class RandomCharGenerator implements CharGenerator {
-    private static final Random RAND = new Random();
+	private static final Random RAND = new Random();
 
-    @Override
-    public List<Character> generate(int nbPairs) {
+	@Override
+	public List<Character> generate(int nbPairs) {
 		List<Character> cards = new ArrayList<>();
 		char current;
 		for (int i = 0; i < nbPairs; i++) {
@@ -17,8 +17,8 @@ public class RandomCharGenerator implements CharGenerator {
 			cards.add(current);
 			cards.add(current);
 		}
-        Collections.shuffle(cards);
-        return cards;
-    }
+		Collections.shuffle(cards);
+		return cards;
+	}
 
 }

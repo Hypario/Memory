@@ -8,9 +8,9 @@ public class Game {
 		//
 		// Etape 2 :
 		//
-		 Memory<?> memory = new GraphicalMemory(4, 5);
-		//Memory<?> memory = new TextualMemory(4, 5);
+		Memory<?> memory = new GraphicalMemory(4, 5);
+		// Memory<?> memory = new TextualMemory(4, 5);
 		CharGenerator generator = new RandomCharGenerator();
-		MemoryController.control(memory,generator);
+		MemoryController.control(memory, generator);
 	}
 }

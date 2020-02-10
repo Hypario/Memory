@@ -3,8 +3,8 @@ package dut.archilog.intro;
 import java.util.Iterator;
 
 public class MemoryController {
-    
-	public static <C extends Cell>  void control(Memory<C> memory,CharGenerator generator) {		
+
+	public static <C extends Cell> void control(Memory<C> memory, CharGenerator generator) {
 		Iterator<C> it = generator.generate(memory.getNbPairs()).stream().map(memory::createCell).iterator();
 		int stats = 0;
 		memory.prepare(it);
@@ -19,7 +19,7 @@ public class MemoryController {
 			}
 		}
 		if (memory.isWinner()) {
-			memory.displayMessage("Congrats!, you won in "+stats+" steps !!!");
+			memory.displayMessage("Congrats!, you won in " + stats + " steps !!!");
 		} else {
 			memory.displayMessage("You will certainly do better next time!");
 		}

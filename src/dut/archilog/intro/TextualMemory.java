@@ -23,7 +23,6 @@ public class TextualMemory implements Memory<Cell> {
 		nbPairsToFind = getNbPairs();
 	}
 
-
 	@Override
 	public Cell createCell(char content) {
 		return new Cell(content);
@@ -95,6 +94,7 @@ public class TextualMemory implements Memory<Cell> {
 
 	/**
 	 * Retourne l'entier qu'à taper l'utilisateur
+	 * 
 	 * @return int
 	 */
 	private int nextInt() {
@@ -111,7 +111,8 @@ public class TextualMemory implements Memory<Cell> {
 		int x, y;
 		do {
 			System.out.println(this);
-			System.out.printf("Quelle carte souhaitez-vous retourner ? 1 <= X <= %d et 1 <= Y <=%d%n", nbColumns, nbRows);
+			System.out.printf("Quelle carte souhaitez-vous retourner ? 1 <= X <= %d et 1 <= Y <=%d%n", nbColumns,
+					nbRows);
 			x = nextInt();
 			y = nextInt();
 		} while (x < 1 || x > nbColumns || y < 1 || y > nbRows);

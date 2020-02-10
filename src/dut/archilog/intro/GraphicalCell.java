@@ -12,7 +12,7 @@ public class GraphicalCell extends Cell {
 	public GraphicalCell(char content) {
 		super(content);
 		ui = new CellButton(this.toString(), this);
-		ui.setPreferredSize(new Dimension(80,80));
+		ui.setPreferredSize(new Dimension(80, 80));
 	}
 
 	@Override

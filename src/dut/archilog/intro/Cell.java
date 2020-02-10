@@ -1,8 +1,7 @@
 package dut.archilog.intro;
 
 /**
- * A cell displays some content, depending of its state 
- * (visible or not).
+ * A cell displays some content, depending of its state (visible or not).
  * 
  * @author leberre
  *
@@ -30,7 +29,7 @@ public class Cell {
 	public void pin() {
 		// do nothing by default
 	}
-	
+
 	@Override
 	public String toString() {
 		if (visible) {
@@ -46,7 +45,7 @@ public class Cell {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Character.hashCode(content);
