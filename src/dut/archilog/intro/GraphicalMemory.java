@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
-import java.util.Scanner;
 
 import javax.swing.*;
 
@@ -13,7 +12,6 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
     private final int nbRows, nbColumns;
 
     private final Cell[][] cells;
-    private final Scanner in = new Scanner(System.in); // read the input from the keyboard
     private int nbPairsToFind;
 
     private final JFrame frame = new JFrame("Graphical Memory");
@@ -94,15 +92,14 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
 
     @Override
     public void hideTheTwoCards() {
-
-        // d�sactivation de la frame afin que le joueur ne puisse pas int�ragir avec le jeu quand les deux cartes sont montr�es
+        // deactivation of frame to avoid picking 3 cards
         frame.setEnabled(false);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        // r�activation de la frame
+        // activate frame
         frame.setEnabled(true);
 
         firstCard.setVisible(false);
