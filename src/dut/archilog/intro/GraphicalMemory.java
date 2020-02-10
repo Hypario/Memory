@@ -81,15 +81,20 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
 
     @Override
     public boolean areCardEquals() {
-        return false;
+        return firstCard.equals(secondCard);
     }
 
     @Override
     public void displayTheTwoCards() {
+    	firstCard.setVisible(true);
+    	secondCard.setVisible(true);
+    	nbPairsToFind--;
     }
 
     @Override
     public void hideTheTwoCards() {
+    	firstCard.setVisible(false);
+    	secondCard.setVisible(false);
     }
 
     @Override
@@ -104,6 +109,7 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
 
     @Override
     public void displayMessage(String message) {
+    	JOptionPane.showMessageDialog(frame,message);
     }
 
 
@@ -118,6 +124,6 @@ public class GraphicalMemory implements Memory<GraphicalCell>, ActionListener {
         else if (secondCard == null)
             secondCard = cell;
         else
-            System.err.println("Hoho...il y a un problÃ¨me...");
+            System.err.println("Hoho...il y a un problème...");
     }
 }
